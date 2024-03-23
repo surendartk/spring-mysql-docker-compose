@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Save Error</h2>
+    <!-- Display error message if any -->
+    <div id="errorMessage" style="display: none;"></div>
+
+    <form action="/save" method="post">
+        <label for="topic">Topic:</label><br>
+        <input type="text" id="topic" name="topic"><br>
+        <label for="error">Error:</label><br>
+        <textarea id="error" name="error"></textarea><br>
+        <label for="solution">Solution:</label><br>
+        <textarea id="solution" name="solution" rows="8" cols="40"></textarea><br>
+
+        <button type="submit" onclick="return checkTextLength()">Save</button>
+    </form>
+    <a href="/view"><button>View Errors</button></a>
+
+    <script>
+        function checkTextLength() {
+            var solutionText = document.getElementById('solution').value;
+            if (solutionText.length > 255) { // Adjust the maximum length as needed
+                showError("solution too long. Please shorten the solution to 255");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission if text length is within limit
+        }
+
+        // Function to display error message
+        function showError(message) {
+            var errorMessage = document.getElementById('errorMessage');
+            errorMessage.innerHTML = message;
+            errorMessage.style.display = 'block'; // Show the error message
+            setTimeout(function() {
+                errorMessage.style.display = 'none'; // Hide the error message after some time
+            }, 3000); // 3000 milliseconds = 3 seconds
+        }
+    </script>
+</body>
+</html>
