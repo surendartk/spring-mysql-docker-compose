@@ -11,7 +11,7 @@ https://docs.docker.com/desktop/install/windows-install/
 
 cmd : git clone https://github.com/tksuren/spring-mysql-docker-compose.git
 
-cmd : cd your-repository
+cmd : cd spring-mysql-docker-compose
 
 cmd : docker-compose up
 
