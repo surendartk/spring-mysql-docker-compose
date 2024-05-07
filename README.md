@@ -10,7 +10,7 @@ https://docs.docker.com/desktop/install/windows-install/
 # Usage
 
 cmd : 
-``base
+```base
 git clone https://github.com/tksuren/spring-mysql-docker-compose.git
 
 cmd : cd spring-mysql-docker-compose
